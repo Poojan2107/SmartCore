@@ -1,130 +1,148 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function LogoIntro() {
-  // Start as true so the overlay renders immediately on client mount
-  const [visible, setVisible] = useState(true);
-  const [shouldRender, setShouldRender] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if already seen this session
-    const seen = sessionStorage.getItem("sc_intro_v3");
-    if (seen) {
-      setVisible(false);
-      return;
-    }
+    const el = overlayRef.current;
+    if (!el) return;
 
-    // Show the intro
-    setShouldRender(true);
+    // Skip if already shown this session
+    if (sessionStorage.getItem("sc_intro_v4")) return;
+
+    // Reveal the overlay immediately
+    el.style.display = "flex";
     document.body.style.overflow = "hidden";
 
-    // Dismiss after 2.6s
-    const t = setTimeout(() => {
-      setVisible(false);
-    }, 2600);
+    // After 2.8s, curtain sweep up exit
+    const exitTimer = setTimeout(() => {
+      el.style.transition = "transform 0.9s cubic-bezier(0.76, 0, 0.24, 1)";
+      el.style.transform = "translateY(-100%)";
 
-    return () => clearTimeout(t);
+      // After transition, clean up
+      setTimeout(() => {
+        el.style.display = "none";
+        document.body.style.overflow = "";
+        sessionStorage.setItem("sc_intro_v4", "1");
+      }, 950);
+    }, 2800);
+
+    return () => clearTimeout(exitTimer);
   }, []);
 
-  // After exit animation completes, save to session
-  const handleExitComplete = () => {
-    sessionStorage.setItem("sc_intro_v3", "1");
-    document.body.style.overflow = "";
-  };
-
-  if (!shouldRender) return null;
-
-  const letters = "SmartCore".split("");
-
   return (
-    <AnimatePresence onExitComplete={handleExitComplete}>
-      {visible && (
-        <motion.div
-          key="logo-intro"
-          exit={{ y: "-100%", transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-          style={{ backgroundColor: "#0a0a0f", willChange: "transform" }}
-        >
-          {/* Ambient glow */}
-          <motion.div
-            className="absolute rounded-full pointer-events-none"
+    <div
+      ref={overlayRef}
+      style={{ display: "none" }}
+      className="fixed inset-0 z-[9999] flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Dark background */}
+      <div className="absolute inset-0 bg-[#08080f]" />
+
+      {/* Ambient glow */}
+      <div
+        className="absolute rounded-full pointer-events-none sc-glow-anim"
+        style={{
+          width: 520,
+          height: 520,
+          background: "radial-gradient(circle, rgba(244,94,34,0.2) 0%, transparent 70%)",
+          filter: "blur(70px)",
+        }}
+      />
+
+      {/* Logo */}
+      <div className="relative z-10 mb-7 sc-logo-anim">
+        {/* Pulse ring */}
+        <div
+          className="absolute inset-0 rounded-2xl border-2 border-orange-500 sc-ring-anim"
+        />
+        <img
+          src="/logo.jpeg"
+          alt="SmartCore"
+          className="w-24 h-24 rounded-2xl object-cover relative z-10"
+          style={{ boxShadow: "0 0 50px rgba(244,94,34,0.4)" }}
+        />
+      </div>
+
+      {/* Brand name */}
+      <div className="relative z-10 flex items-center">
+        {"SmartCore".split("").map((letter, i) => (
+          <span
+            key={i}
+            className="text-white font-bold sc-letter-anim"
             style={{
-              width: 480,
-              height: 480,
-              background: "radial-gradient(circle, rgba(244,94,34,0.2) 0%, transparent 70%)",
-              filter: "blur(60px)",
+              fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
+              fontFamily: "'Outfit', sans-serif",
+              animationDelay: `${0.4 + i * 0.07}s`,
             }}
-            initial={{ scale: 0.4, opacity: 0 }}
-            animate={{ scale: 1.3, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          />
-
-          {/* Logo image */}
-          <motion.div
-            className="relative mb-7 z-10"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }}
           >
-            {/* Pulse ring */}
-            <motion.div
-              className="absolute inset-0 rounded-2xl border-2 border-orange-500"
-              initial={{ scale: 1, opacity: 0.8 }}
-              animate={{ scale: 1.9, opacity: 0 }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
-            />
-            <img
-              src="/logo.jpeg"
-              alt="SmartCore"
-              className="w-24 h-24 rounded-2xl object-cover"
-              style={{ boxShadow: "0 0 50px rgba(244, 94, 34, 0.4)" }}
-            />
-          </motion.div>
+            {letter}
+          </span>
+        ))}
+      </div>
 
-          {/* Brand name — letter by letter */}
-          <div className="flex items-center z-10">
-            {letters.map((letter, i) => (
-              <motion.span
-                key={i}
-                className="text-white font-bold"
-                style={{
-                  fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
-                  fontFamily: "'Outfit', sans-serif",
-                }}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.38,
-                  delay: 0.4 + i * 0.07,
-                  ease: [0.33, 1, 0.68, 1],
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </div>
+      {/* Tagline */}
+      <p
+        className="relative z-10 mt-4 text-sm tracking-[0.3em] uppercase font-medium text-orange-400 sc-tagline-anim"
+      >
+        Institute Intelligence
+      </p>
 
-          {/* Tagline */}
-          <motion.p
-            className="mt-4 text-sm tracking-[0.3em] uppercase font-medium text-orange-400 z-10"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.5 }}
-          >
-            Institute Intelligence
-          </motion.p>
+      {/* Progress bar */}
+      <div className="absolute bottom-0 left-0 h-[3px] sc-progress-anim" style={{ backgroundColor: "#f45e22" }} />
 
-          {/* Progress bar */}
-          <motion.div
-            className="absolute bottom-0 left-0 h-[3px] bg-orange-500"
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 2.5, ease: "linear" }}
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+      <style>{`
+        @keyframes sc-glow {
+          from { opacity: 0; transform: scale(0.4); }
+          to   { opacity: 1; transform: scale(1.3); }
+        }
+        @keyframes sc-logo {
+          0%   { opacity: 0; transform: scale(0.5); }
+          70%  { transform: scale(1.05); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes sc-ring {
+          0%   { transform: scale(1); opacity: 0.8; }
+          100% { transform: scale(1.9); opacity: 0; }
+        }
+        @keyframes sc-letter {
+          from { opacity: 0; transform: translateY(28px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes sc-tagline {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes sc-progress {
+          from { width: 0%; }
+          to   { width: 100%; }
+        }
+
+        .sc-glow-anim {
+          animation: sc-glow 1.2s ease-out forwards;
+        }
+        .sc-logo-anim {
+          animation: sc-logo 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        }
+        .sc-ring-anim {
+          animation: sc-ring 1.5s ease-out infinite;
+          animation-delay: 0.5s;
+        }
+        .sc-letter-anim {
+          opacity: 0;
+          animation: sc-letter 0.38s cubic-bezier(0.33,1,0.68,1) forwards;
+        }
+        .sc-tagline-anim {
+          opacity: 0;
+          animation: sc-tagline 0.5s ease forwards;
+          animation-delay: 1.3s;
+        }
+        .sc-progress-anim {
+          animation: sc-progress 2.7s linear forwards;
+        }
+      `}</style>
+    </div>
   );
 }
