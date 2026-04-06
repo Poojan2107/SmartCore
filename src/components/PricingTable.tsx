@@ -124,10 +124,10 @@ export default function PricingTable() {
             <motion.div 
               variants={item} 
               key={idx} 
-              className={`relative bg-[var(--panel)] border ${tier.popular ? "border-[var(--color-brand-orange)] shadow-2xl scale-100 lg:scale-105 z-10" : "border-[var(--border)] hover:border-[var(--color-brand-blue-light)] shadow-sm hover:shadow-xl"} rounded-3xl p-6 flex flex-col transition-all duration-300`}
+              className={`relative bg-[var(--panel)] border ${tier.popular ? "border-[var(--color-brand-orange)] shadow-[0_20px_50px_rgba(244,94,34,0.15)] scale-100 lg:scale-105 z-10" : "border-[var(--border)] shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] hover:border-[var(--color-brand-blue-light)]"} rounded-3xl p-6 flex flex-col transition-all duration-500`}
             >
               {tier.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-brand-orange)] text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-md">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[var(--color-brand-orange)] to-[var(--color-brand-orange-light)] text-white text-[10px] font-black uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg shadow-[var(--color-brand-orange)]/20">
                   Most Popular
                 </div>
               )}

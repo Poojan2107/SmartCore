@@ -8,12 +8,10 @@ import TechnologySection from "@/components/TechnologySection";
 import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
-import LogoIntro from "@/components/LogoIntro";
 
 export default function Home() {
   return (
     <>
-      <LogoIntro />
       <Navbar />
       <main className="flex-grow">
         <Hero />
@@ -29,4 +27,5 @@ export default function Home() {
     </>
   );
 }
+
 

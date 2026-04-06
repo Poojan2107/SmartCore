@@ -102,12 +102,12 @@ export default function WhyUs() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {reasons.map((reason, idx) => (
-            <motion.div variants={item} key={idx} className="bg-[var(--panel)] border border-[var(--border)] shadow-sm rounded-2xl p-6 hover:-translate-y-1 transition-all hover:shadow-xl group">
-              <div className={`w-10 h-10 rounded-lg ${reason.bg} ${reason.border} border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+            <motion.div variants={item} key={idx} className="bg-[var(--panel)] border border-[var(--border)] rounded-2xl p-6 transition-all duration-500 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1 group">
+              <div className={`w-12 h-12 rounded-xl ${reason.bg} ${reason.border} border flex items-center justify-center mb-6 ring-4 ring-transparent group-hover:ring-current/5 transition-all group-hover:scale-110`}>
                 {reason.icon}
               </div>
-              <h3 className="text-lg font-bold text-[var(--fg)] mb-2">{reason.title}</h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">
+              <h3 className="text-xl font-bold text-[var(--fg)] mb-3">{reason.title}</h3>
+              <p className="text-sm text-[var(--muted)] leading-relaxed font-medium">
                 {reason.desc}
               </p>
             </motion.div>

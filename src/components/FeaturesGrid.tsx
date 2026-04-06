@@ -56,13 +56,13 @@ export default function FeaturesGrid() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-2 bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-[var(--color-brand-blue-light)] transition-colors shadow-lg shadow-black/5 dark:shadow-none"
+            className="md:col-span-2 bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-[var(--color-brand-blue-light)] transition-all duration-500 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)]"
           >
             <div className="absolute top-0 right-0 p-8 opacity-5 dark:opacity-20 group-hover:opacity-10 dark:group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
               <Users className="w-24 h-24 text-[var(--color-brand-blue)]" />
             </div>
             <div className="relative z-10 max-w-md">
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 dark:bg-[var(--color-brand-blue)]/20 flex items-center justify-center text-[var(--color-brand-blue)] dark:text-[var(--color-brand-blue-light)] mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-blue)]/10 dark:bg-[var(--color-brand-blue)]/20 flex items-center justify-center text-[var(--color-brand-blue)] dark:text-[var(--color-brand-blue-light)] mb-6 ring-4 ring-[var(--color-brand-blue)]/5 transition-all group-hover:scale-110">
                 <Users className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-[var(--fg)] mb-3">Student & Batch Management</h3>
@@ -82,13 +82,13 @@ export default function FeaturesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-[var(--color-brand-orange-light)] transition-colors shadow-lg shadow-black/5 dark:shadow-none"
+            className="bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-[var(--color-brand-orange-light)] transition-all duration-500 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)]"
           >
             <div className="absolute top-0 right-0 p-8 opacity-5 dark:opacity-20 group-hover:opacity-10 dark:group-hover:opacity-100 group-hover:rotate-12 transition-all duration-500">
               <CreditCard className="w-24 h-24 text-[var(--color-brand-orange)]" />
             </div>
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 dark:bg-[var(--color-brand-orange)]/20 flex items-center justify-center text-[var(--color-brand-orange)] mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[var(--color-brand-orange)]/10 dark:bg-[var(--color-brand-orange)]/20 flex items-center justify-center text-[var(--color-brand-orange)] mb-6 ring-4 ring-[var(--color-brand-orange)]/5 transition-all group-hover:scale-110">
                 <CreditCard className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-[var(--fg)] mb-3">Automated Fee Tracking</h3>
@@ -104,13 +104,13 @@ export default function FeaturesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-pink-500 transition-colors shadow-lg shadow-black/5 dark:shadow-none"
+            className="bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-pink-500 transition-all duration-500 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)]"
           >
             <div className="absolute top-0 right-0 p-8 opacity-5 dark:opacity-20 group-hover:opacity-10 dark:group-hover:opacity-100 group-hover:-rotate-12 transition-all duration-500">
               <MessageSquare className="w-24 h-24 text-pink-500" />
             </div>
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 flex items-center justify-center text-pink-500 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 flex items-center justify-center text-pink-500 mb-6 ring-4 ring-pink-500/5 transition-all group-hover:scale-110">
                 <MessageSquare className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-[var(--fg)] mb-3">Parent Comms</h3>
@@ -126,13 +126,13 @@ export default function FeaturesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-2 bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-emerald-500 transition-colors shadow-lg shadow-black/5 dark:shadow-none"
+            className="md:col-span-2 bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-emerald-500 transition-all duration-500 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)]"
           >
             <div className="absolute top-0 right-0 p-8 opacity-5 dark:opacity-20 group-hover:opacity-10 dark:group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
               <LineChart className="w-24 h-24 text-emerald-500" />
             </div>
             <div className="relative z-10 max-w-md">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-500 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-500 mb-6 ring-4 ring-emerald-500/5 transition-all group-hover:scale-110">
                 <LineChart className="w-6 h-6" />
               </div>
               <h3 className="text-2xl font-bold text-[var(--fg)] mb-3">Performance Analytics</h3>

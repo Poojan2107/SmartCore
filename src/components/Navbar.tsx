@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav
         className={`w-full max-w-7xl transition-all duration-500 ${
           scrolled 
-            ? "bg-[var(--panel)]/80 backdrop-blur-2xl shadow-xl shadow-black/5 dark:shadow-black/20 border border-[var(--border)] rounded-full px-6 py-3" 
+            ? "bg-[var(--glass-bg)] backdrop-blur-2xl shadow-xl shadow-black/5 dark:shadow-black/20 border border-[var(--border)] rounded-full px-6 py-3" 
             : "bg-transparent px-4 sm:px-6 lg:px-8 py-5 border-transparent"
         }`}
       >
@@ -48,8 +48,8 @@ export default function Navbar() {
                 alt="SmartCore Logo" 
                 className="w-10 h-10 rounded-lg shadow-sm group-hover:scale-105 transition-transform object-cover" 
               />
-              <span className="font-heading font-bold text-xl tracking-wide text-[var(--fg)]">
-                SmartCore <span className="text-[var(--muted)] font-medium hidden sm:inline-block">Technologies</span>
+              <span className="font-heading font-bold text-xl tracking-tight text-[var(--fg)]">
+                SmartCore <span className="text-[var(--color-brand-blue)] font-semibold hidden sm:inline-block">Technologies</span>
               </span>
             </Link>
           </div>
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-[var(--muted)] hover:text-[var(--color-brand-blue-light)] transition-colors"
+                  className="text-sm font-semibold text-[var(--muted)] hover:text-[var(--color-brand-blue)] dark:hover:text-[var(--color-brand-blue-light)] transition-colors"
                 >
                   {link.name}
                 </Link>
