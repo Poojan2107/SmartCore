@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="max-w-sm">
-              Founded by Dhananjay Parmar. Engineered by Poojan Shrivastav. An Ahmedabad-based company building bespoke, high-performance management systems exclusively for coaching institutes.
+              Founded by Dhananjaysinh Parmar. Engineered by Poojan Shrivastav. An Ahmedabad-based company building bespoke, high-performance management systems exclusively for coaching institutes.
             </p>
           </div>
 
@@ -33,11 +33,11 @@ export default function Footer() {
             <h4 className="text-[var(--fg)] font-bold uppercase tracking-wider text-sm mb-6">Contact</h4>
             <ul className="space-y-4">
               <li className="flex flex-col space-y-2">
-                <a href="mailto:pythond0912@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
+                <a href="mailto:pythond0912@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">pythond0912@gmail.com (Dhananjaysinh)</a>
                 <a href="mailto:poojanshrivastav21@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">poojanshrivastav21@gmail.com (Poojan)</a>
               </li>
               <li className="flex flex-col space-y-2 pt-2">
-                <a href="tel:+918000963451" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                <a href="tel:+918000963451" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 80009 63451 (Dhananjaysinh)</a>
                 <a href="tel:+919023362134" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 90233 62134 (Poojan)</a>
               </li>
               <li>Ahmedabad, Gujarat</li>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>© {new Date().getFullYear()} SmartCore Technologies. Founded by Dhananjay Parmar.</p>
+          <p>© {new Date().getFullYear()} SmartCore Technologies. Founded by Dhananjaysinh Parmar.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Terms of Service</a>
