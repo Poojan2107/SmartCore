@@ -1,37 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Code2, Workflow } from "lucide-react";
 
 export default function TeamSection() {
-  const team = [
-    {
-      name: "Poojan Shrivastav",
-      initials: "PS",
-      role: "Co-Founder & Developer",
-      desc: "Specializing in high-performance architecture and secure data management. Poojan ensures that your institute's digital infrastructure is robust, scalable, and capable of handling thousands of student records without a single bottleneck.",
-      color: "var(--color-brand-blue)"
-    },
-    {
-      name: "Dhananjay Parmar",
-      initials: "DP",
-      role: "Co-Founder & Developer",
-      desc: "Focused on crafting intuitive workflows and seamless user experiences. Dhananjay designs the precise administrative tools and interfaces that allow your staff to manage fees, attendance, and communications effortlessly.",
-      color: "var(--color-brand-orange)"
-    }
-  ];
-
   return (
-    <section className="py-24 bg-[var(--bg)] border-t border-[var(--border)]" id="team">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[var(--bg)] border-t border-[var(--border)] relative overflow-hidden" id="team">
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[var(--color-brand-blue)]/5 rounded-full blur-[120px] -translate-y-1/2" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[var(--color-brand-orange)]/5 rounded-full blur-[120px] translate-y-1/2" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-bold text-[var(--color-brand-blue-light)] uppercase tracking-[0.2em] mb-4"
+            className="text-xs font-bold text-[var(--color-brand-orange)] uppercase tracking-[0.2em] mb-4"
           >
-            Locally Rooted Experts
+            A Unified Partnership
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +26,7 @@ export default function TeamSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-heading font-bold text-[var(--fg)] mb-4 tracking-tight"
           >
-            The Engineers Building <span className="text-[var(--color-brand-orange)]">Your Systems</span>
+            The Founders Behind <span className="text-[var(--color-brand-blue)]">SmartCore</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -48,46 +35,100 @@ export default function TeamSection() {
             transition={{ delay: 0.1 }}
             className="text-lg text-[var(--muted)]"
           >
-            We are dedicated developers based in Ahmedabad. No outsourced support, no generic sales teams—just the architects personally invested in writing the code that powers your institute.
+            We built this platform together from the ground up—combining strategic operations with hardcore engineering to give your institute an unfair advantage.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {team.map((member, idx) => (
+        <div className="max-w-5xl mx-auto">
+          {/* Dual Founders Card Layout */}
+          <div className="grid md:grid-cols-2 gap-0 bg-[var(--panel)] border border-[var(--border)] rounded-3xl overflow-hidden shadow-2xl relative">
+            
+            {/* Dhananjay - Vision & Operations (Left side = First) */}
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-[var(--panel)] border border-[var(--border)] rounded-3xl p-8 hover:border-[var(--color-brand-blue-light)] transition-colors shadow-lg shadow-black/5 dark:shadow-none relative overflow-hidden group"
+              className="p-10 md:p-12 relative overflow-hidden group border-b md:border-b-0 md:border-r border-[var(--border)]"
             >
-              {/* Subtle accent glow */}
-              <div 
-                className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-10 group-hover:opacity-20 transition-opacity" 
-                style={{ backgroundColor: member.color }}
-              />
-
-              <div className="flex items-center gap-5 mb-6 relative z-10">
-                <div 
-                  className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl uppercase tracking-wider"
-                  style={{ backgroundColor: `color-mix(in srgb, ${member.color} 10%, transparent)`, color: member.color }}
-                >
-                  {member.initials}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-orange)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-[var(--color-brand-orange)]/10 flex items-center justify-center border border-[var(--color-brand-orange)]/20 shadow-inner">
+                    <span className="text-2xl font-bold text-[var(--color-brand-orange)]">DP</span>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-[var(--fg)]">Dhananjay Parmar</h3>
+                    <p className="text-[var(--color-brand-orange)] font-semibold text-sm tracking-wide uppercase mt-1">Founder, Product & Strategy</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-[var(--fg)]">{member.name}</h3>
-                  <p className="text-[var(--color-brand-orange)] font-semibold text-sm tracking-wide uppercase mt-1">
-                    {member.role}
+
+                <div className="space-y-4 text-[var(--muted)] leading-relaxed">
+                  <p>
+                    Dhananjay drives the vision and operational strategy behind SmartCore. He actively interfaces with institutes to understand their workflow bottlenecks.
+                  </p>
+                  <p>
+                    His primary mission is to translate complex administrative needs into intuitive, seamless user experiences that empower educators to focus on what matters most.
                   </p>
                 </div>
-              </div>
 
-              <p className="text-[var(--muted)] leading-relaxed relative z-10">
-                {member.desc}
-              </p>
+                <div className="mt-8 pt-6 border-t border-[var(--border)] flex items-center gap-3 text-sm font-medium text-[var(--fg)]">
+                  <Workflow className="w-4 h-4 text-[var(--color-brand-orange)]" />
+                  Orchestrating workflows & client success
+                </div>
+              </div>
             </motion.div>
-          ))}
+
+            {/* Poojan - Architecture & Engineering (Right side = Second but heavily emphasized as Tech Core) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-10 md:p-12 relative overflow-hidden group bg-[var(--bg)]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-bl from-[var(--color-brand-blue)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-[var(--color-brand-blue)]/10 flex items-center justify-center border border-[var(--color-brand-blue)]/20 shadow-inner">
+                    <span className="text-2xl font-bold text-[var(--color-brand-blue)]">PS</span>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-[var(--fg)]">Poojan Shrivastav</h3>
+                    <p className="text-[var(--color-brand-blue)] font-semibold text-sm tracking-wide uppercase mt-1">Founder, Systems & Architecture</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-[var(--muted)] leading-relaxed">
+                  <p>
+                    Poojan is the core technical architect who built the foundation of SmartCore. He specializes in high-performance infrastructure and secure data pipelines.
+                  </p>
+                  <p>
+                    His focus guarantees that every line of code serves the system's speed, ensuring your institute's digital backbone is unbreakable, scalable, and future-proof.
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-[var(--border)] flex items-center gap-3 text-sm font-medium text-[var(--fg)]">
+                  <Code2 className="w-4 h-4 text-[var(--color-brand-blue)]" />
+                  Engineering robust & scalable architecture
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <p className="text-sm font-medium text-[var(--muted)] flex items-center justify-center gap-2">
+              <span className="w-8 h-[1px] bg-[var(--border)]" />
+              Two specialized Founders. One exceptional platform.
+              <span className="w-8 h-[1px] bg-[var(--border)]" />
+            </p>
+          </motion.div>
         </div>
 
       </div>
