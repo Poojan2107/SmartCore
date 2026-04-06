@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://smartcoretech.in"),
   title: "SmartCore Technologies | Bespoke Institute Management",
   description: "Custom digital infrastructure for leading coaching centers and tuition classes. We handle attendance, fees, and workflow automation.",
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   openGraph: {
     title: "SmartCore Technologies | Bespoke Institute Management",
     description: "Custom digital infrastructure for leading coaching centers. Let SmartCore handle your administrative burden.",
