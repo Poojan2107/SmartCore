@@ -1,24 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
-
 export default function Footer() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isDhananjayMode, setIsDhananjayMode] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('ref') === 'dp') {
-      localStorage.setItem('founder_mode', 'dp');
-      setIsDhananjayMode(true);
-    } else if (localStorage.getItem('founder_mode') === 'dp') {
-      setIsDhananjayMode(true);
-    }
-  }, []);
-
-  const dm = isMounted && isDhananjayMode;
-
   return (
     <footer className="bg-[var(--panel)] text-[var(--muted)] py-16 border-t border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,9 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="max-w-sm">
-              {dm
-                ? "An Ahmedabad-based software company founded by Dhananjay Parmar, building bespoke, high-performance management systems exclusively for coaching institutes."
-                : "An Ahmedabad-based engineering company building bespoke, high-performance management systems exclusively for individual coaching institutes."}
+              Co-founded by Dhananjay Parmar & Poojan Shrivastav — an Ahmedabad-based engineering company building bespoke, high-performance management systems for coaching institutes.
             </p>
           </div>
 
@@ -55,30 +33,12 @@ export default function Footer() {
             <h4 className="text-[var(--fg)] font-bold uppercase tracking-wider text-sm mb-6">Contact</h4>
             <ul className="space-y-4">
               <li className="flex flex-col space-y-2">
-                {dm ? (
-                  <>
-                    <a href="mailto:pythond0912@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
-                    <a href="mailto:poojanshrivastav21@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">poojanshrivastav21@gmail.com (Tech)</a>
-                  </>
-                ) : (
-                  <>
-                    <a href="mailto:poojanshrivastav21@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">poojanshrivastav21@gmail.com (Poojan)</a>
-                    <a href="mailto:pythond0912@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
-                  </>
-                )}
+                <a href="mailto:pythond0912@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
+                <a href="mailto:poojanshrivastav21@gmail.com" className="hover:text-[var(--color-brand-blue-light)] transition-colors">poojanshrivastav21@gmail.com (Poojan)</a>
               </li>
               <li className="flex flex-col space-y-2 pt-2">
-                {dm ? (
-                  <>
-                    <a href="tel:+918000963451" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 80009 63451 (Dhananjay)</a>
-                    <a href="tel:+919023362134" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 90233 62134 (Tech Team)</a>
-                  </>
-                ) : (
-                  <>
-                    <a href="tel:+919023362134" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 90233 62134 (Poojan)</a>
-                    <a href="tel:+918000963451" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 80009 63451 (Dhananjay)</a>
-                  </>
-                )}
+                <a href="tel:+918000963451" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                <a href="tel:+919023362134" className="hover:text-[var(--color-brand-blue-light)] transition-colors">+91 90233 62134 (Poojan)</a>
               </li>
               <li>Ahmedabad, Gujarat</li>
             </ul>
@@ -87,11 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>
-            {dm
-              ? <>© {new Date().getFullYear()} SmartCore Technologies. Founded by Dhananjay Parmar.</>
-              : <>© {new Date().getFullYear()} SmartCore Technologies. Custom engineered.</>}
-          </p>
+          <p>© {new Date().getFullYear()} SmartCore Technologies — Co-founded by Dhananjay Parmar & Poojan Shrivastav.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Terms of Service</a>
@@ -101,4 +57,3 @@ export default function Footer() {
     </footer>
   );
 }
-
