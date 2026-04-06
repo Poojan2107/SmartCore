@@ -43,7 +43,7 @@ export default function TeamSection() {
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
 
-          {/* Dhananjay — Founder */}
+          {/* Dhananjaysinh — Founder */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,10 +60,10 @@ export default function TeamSection() {
                   Founder
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-[var(--fg)] mb-1">Dhananjay Parmar</h3>
+              <h3 className="text-2xl font-bold text-[var(--fg)] mb-1">Dhananjaysinh Parmar</h3>
               <p className="text-[var(--color-brand-orange)] text-sm font-semibold uppercase tracking-wide mb-5">Founder & Director</p>
               <p className="text-[var(--muted)] leading-relaxed">
-                Dhananjay founded SmartCore with a mission to eliminate the operational chaos that plagues coaching institutes. He drives the product vision, owns client relationships, and ensures every solution we build is exactly what an institute actually needs.
+                Dhananjaysinh founded SmartCore with a mission to eliminate the operational chaos that plagues coaching institutes. He drives the product vision, owns client relationships, and ensures every solution we build is exactly what an institute actually needs.
               </p>
             </div>
           </motion.div>

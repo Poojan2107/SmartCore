@@ -118,7 +118,7 @@ export default function ContactSection() {
                   <div>
                     <strong className="block text-[var(--fg)] font-semibold mb-1">Get in Touch</strong>
                     <div className="flex flex-col">
-                      <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
+                      <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com (Dhananjaysinh)</a>
                       <a href="mailto:poojanshrivastav21@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">poojanshrivastav21@gmail.com (Poojan)</a>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ export default function ContactSection() {
                   <div>
                     <strong className="block text-[var(--fg)] font-semibold mb-1">Call / WhatsApp</strong>
                     <div className="flex flex-col gap-1">
-                      <a href="tel:+918000963451" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                      <a href="tel:+918000963451" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 80009 63451 (Dhananjaysinh)</a>
                       <a href="tel:+919023362134" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 90233 62134 (Poojan)</a>
                     </div>
                   </div>
@@ -142,7 +142,7 @@ export default function ContactSection() {
             <div className="mt-12 p-6 bg-[var(--color-brand-blue)]/5 rounded-xl border border-[var(--color-brand-blue)]/10">
               <p className="text-sm font-semibold text-[var(--color-brand-blue-light)] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[var(--color-brand-blue-light)] animate-pulse" />
-                Dhananjay (Founder) & Poojan (Engineer) are available
+                Dhananjaysinh (Founder) & Poojan (Engineer) are available
               </p>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function ContactSection() {
                 </div>
                 <h3 className="text-3xl font-bold text-[var(--fg)] mb-4">Request Received!</h3>
                 <p className="text-[var(--muted)] text-lg mb-8 max-w-sm mx-auto">
-                  Thank you for reaching out. Poojan or Dhananjay will contact you within the next 24 hours to discuss your custom build.
+                  Thank you for reaching out. Poojan or Dhananjaysinh will contact you within the next 24 hours to discuss your custom build.
                 </p>
                 <button 
                   onClick={() => {
