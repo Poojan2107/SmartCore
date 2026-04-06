@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+
+  --color-brand-blue: #2352db;
+  --color-brand-orange: #f45e22;
+  --color-brand-blue-light: #4978ff;
+  --color-brand-orange-light: #fc8354;
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-panel: var(--panel);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+}
+
+@layer utilities {
+  .glassmorphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+:root {
+  --bg: #f4f6fa;
+  --fg: #0f172a;
+  --panel: #ffffff;
+  --border: #e2e8f0;
+  --muted: #475569;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 1);
+}
+
+.dark {
+  --bg: #080f1a;
+  --fg: #f8fafc;
+  --panel: #101826;
+  --border: #1a2537;
+  --muted: #94a3b8;
+  --glass-bg: rgba(20, 25, 35, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[var(--bg)] text-[var(--fg)] antialiased font-sans transition-colors duration-300;
+}
