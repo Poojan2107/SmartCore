@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
@@ -14,6 +14,19 @@ export default function ContactSection() {
   });
   
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [isMounted, setIsMounted] = useState(false);
+  const [isDhananjayMode, setIsDhananjayMode] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('ref') === 'dp') {
+      localStorage.setItem('founder_mode', 'dp');
+      setIsDhananjayMode(true);
+    } else if (localStorage.getItem('founder_mode') === 'dp') {
+      setIsDhananjayMode(true);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,10 +129,21 @@ export default function ContactSection() {
                     <Mail className="w-5 h-5 text-[var(--color-brand-orange)]" />
                   </div>
                   <div>
-                    <strong className="block text-[var(--fg)] font-semibold mb-1">Founders Deck</strong>
+                    <strong className="block text-[var(--fg)] font-semibold mb-1">
+                      {isMounted && isDhananjayMode ? "Founder's Direct" : "Founders Deck"}
+                    </strong>
                     <div className="flex flex-col">
-                      <a href="mailto:poojanshrivastav21@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">poojanshrivastav21@gmail.com</a>
-                      <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com</a>
+                      {isMounted && isDhananjayMode ? (
+                        <>
+                          <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
+                          <a href="mailto:poojanshrivastav21@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">poojanshrivastav21@gmail.com (Tech)</a>
+                        </>
+                      ) : (
+                        <>
+                          <a href="mailto:poojanshrivastav21@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">poojanshrivastav21@gmail.com</a>
+                          <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com</a>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -131,8 +155,17 @@ export default function ContactSection() {
                   <div>
                     <strong className="block text-[var(--fg)] font-semibold mb-1">Call / WhatsApp</strong>
                     <div className="flex flex-col gap-1">
-                      <a href="tel:+919023362134" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 90233 62134 (Poojan)</a>
-                      <a href="tel:+918000963451" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                      {isMounted && isDhananjayMode ? (
+                        <>
+                          <a href="tel:+918000963451" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                          <a href="tel:+919023362134" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 90233 62134 (Tech Team)</a>
+                        </>
+                      ) : (
+                        <>
+                          <a href="tel:+919023362134" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 90233 62134 (Poojan)</a>
+                          <a href="tel:+918000963451" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">+91 80009 63451 (Dhananjay)</a>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -142,7 +175,7 @@ export default function ContactSection() {
             <div className="mt-12 p-6 bg-[var(--color-brand-blue)]/5 rounded-xl border border-[var(--color-brand-blue)]/10">
               <p className="text-sm font-semibold text-[var(--color-brand-blue-light)] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[var(--color-brand-blue-light)] animate-pulse" />
-                Poojan & Dhananjay are currently online
+                {isMounted && isDhananjayMode ? "Dhananjay is currently online" : "Dhananjay & Poojan are currently online"}
               </p>
             </div>
           </div>

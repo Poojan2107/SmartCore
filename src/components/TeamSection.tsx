@@ -1,9 +1,29 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code2, Workflow } from "lucide-react";
 
 export default function TeamSection() {
+  const [isMounted, setIsMounted] = useState(false);
+  const [isDhananjayMode, setIsDhananjayMode] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    
+    if (ref === 'dp') {
+      localStorage.setItem('founder_mode', 'dp');
+      setIsDhananjayMode(true);
+    } else if (localStorage.getItem('founder_mode') === 'dp') {
+      setIsDhananjayMode(true);
+    }
+  }, []);
+
+  const titleDp = (isMounted && isDhananjayMode) ? "Founder & CEO" : "Founder & Director";
+  const titlePs = (isMounted && isDhananjayMode) ? "Original Creator & Lead Engineer" : "Creator & Chief Architect";
+  
   return (
     <section className="py-24 bg-[var(--bg)] border-t border-[var(--border)] relative overflow-hidden" id="team">
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[var(--color-brand-blue)]/5 rounded-full blur-[120px] -translate-y-1/2" />
@@ -18,7 +38,7 @@ export default function TeamSection() {
             viewport={{ once: true }}
             className="text-xs font-bold text-[var(--color-brand-orange)] uppercase tracking-[0.2em] mb-4"
           >
-            A Unified Partnership
+            {isMounted && isDhananjayMode ? "The Core Leadership" : "A Unified Partnership"}
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +46,7 @@ export default function TeamSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-heading font-bold text-[var(--fg)] mb-4 tracking-tight"
           >
-            The Founders Behind <span className="text-[var(--color-brand-blue)]">SmartCore</span>
+            {isMounted && isDhananjayMode ? "The Vision Behind" : "The Founders Behind"} <span className="text-[var(--color-brand-blue)]">SmartCore</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +79,7 @@ export default function TeamSection() {
                   </div>
                   <div>
                     <h3 className="text-3xl font-bold text-[var(--fg)]">Dhananjay Parmar</h3>
-                    <p className="text-[var(--color-brand-orange)] font-semibold text-sm tracking-wide uppercase mt-1">Founder, Product & Strategy</p>
+                    <p className="text-[var(--color-brand-orange)] font-semibold text-sm tracking-wide uppercase mt-1">{titleDp}</p>
                   </div>
                 </div>
 
@@ -95,7 +115,7 @@ export default function TeamSection() {
                   </div>
                   <div>
                     <h3 className="text-3xl font-bold text-[var(--fg)]">Poojan Shrivastav</h3>
-                    <p className="text-[var(--color-brand-blue)] font-semibold text-sm tracking-wide uppercase mt-1">Founder, Systems & Architecture</p>
+                    <p className="text-[var(--color-brand-blue)] font-semibold text-sm tracking-wide uppercase mt-1">{titlePs}</p>
                   </div>
                 </div>
 
