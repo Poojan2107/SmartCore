@@ -6,11 +6,14 @@ export default function LogoIntro() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    console.log("LogoIntro mounted");
     // Skip if seen this session
     if (typeof window !== "undefined" && sessionStorage.getItem("sc_v5")) {
+      console.log("LogoIntro skipped (sc_v5 found)");
       return;
     }
     setShow(true);
+    console.log("LogoIntro showing...");
     document.body.style.overflow = "hidden";
 
     const dismiss = setTimeout(() => {

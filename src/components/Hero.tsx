@@ -7,13 +7,27 @@ export default function Hero() {
   return (
     <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-32 overflow-hidden" id="home">
       {/* Background Effects matching mockup */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-[var(--bg)] z-0 overflow-hidden">
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.05] dark:opacity-[0.02]" />
         
-        {/* Gradients */}
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-[var(--color-brand-blue)]/25 dark:bg-[var(--color-brand-blue)]/10 rounded-full blur-[120px]" />
-        <div className="absolute top-[20%] -right-32 w-[600px] h-[600px] bg-[var(--color-brand-orange)]/20 dark:bg-[var(--color-brand-orange)]/10 rounded-full blur-[150px]" />
+        {/* Soft Ambient Mesh for Light Mode */}
+        <div className="absolute inset-0 opacity-10 dark:opacity-0 mix-blend-multiply" 
+          style={{
+            background: `
+              radial-gradient(at 0% 0%, #f45e22 0px, transparent 50%),
+              radial-gradient(at 100% 0%, #2352db 0px, transparent 50%),
+              radial-gradient(at 100% 100%, #f45e22 0px, transparent 50%),
+              radial-gradient(at 0% 100%, #2352db 0px, transparent 50%)
+            `,
+            filter: 'blur(100px)'
+          }} 
+        />
+
+        {/* Floating Glows */}
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[var(--color-brand-blue)]/20 dark:bg-[var(--color-brand-blue)]/10 rounded-full blur-[140px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[700px] h-[700px] bg-[var(--color-brand-orange)]/15 dark:bg-[var(--color-brand-orange)]/10 rounded-full blur-[160px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -31,9 +45,9 @@ export default function Hero() {
               Bespoke Institute Systems
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-heading font-bold text-[var(--fg)] leading-[1.15] lg:leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-heading font-extrabold text-[var(--fg)] leading-[1.05] mb-8 tracking-tight">
               Empowering <span className="text-[var(--color-brand-orange)]">Institutes,</span><br />
-              Enriching <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-blue)] to-cyan-500 dark:from-[var(--color-brand-blue-light)] dark:to-cyan-400">Futures.</span>
+              Enriching <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-blue)] via-[var(--color-brand-blue-light)] to-cyan-500 font-black">Futures.</span>
             </h1>
             
             <p className="text-lg text-[var(--muted)] mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
@@ -80,7 +94,7 @@ export default function Hero() {
             className="relative lg:ml-auto w-full max-w-[500px]"
           >
             {/* Main graphic wrapping container to match mockup */}
-            <div className="w-full aspect-[4/5] bg-gradient-to-br from-[var(--panel)] to-[var(--bg)] rounded-3xl border border-[var(--border)] relative z-10 shadow-2xl p-6 flex flex-col pt-12 overflow-hidden">
+            <div className="w-full aspect-[4/5] bg-gradient-to-br from-[#ffffff] to-[var(--bg)] dark:from-[var(--panel)] dark:to-[var(--bg)] rounded-3xl border border-[var(--border)] relative z-10 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-shadow duration-500 p-6 flex flex-col pt-12 overflow-hidden">
               
               {/* Inner glowing core */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[var(--color-brand-blue)]/10 dark:bg-[var(--color-brand-blue)]/20 rounded-full blur-[80px]" />

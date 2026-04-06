@@ -187,7 +187,7 @@ export default function ContactSection() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="E.g. Sameer Patel"
-                                    className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--fg)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)]/50 focus:border-[var(--color-brand-orange)] transition-all"
+                                    className="w-full bg-[var(--panel)] dark:bg-[var(--bg)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--fg)] placeholder:text-[var(--muted)]/50 focus:outline-none focus:ring-4 focus:ring-[var(--color-brand-orange)]/10 focus:border-[var(--color-brand-orange)] transition-all shadow-sm"
                                     suppressHydrationWarning
                                   />       
                                 </div>
@@ -242,7 +242,7 @@ export default function ContactSection() {
                                   value={formData.message}
                                   onChange={handleChange}
                                   placeholder="I manage 5 distinct batches and need an automated way to push attendance straight to parent WhatsApp groups..."
-                                  className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--fg)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-orange)]/50 focus:border-[var(--color-brand-orange)] transition-all resize-none"
+                                  className="w-full bg-[var(--panel)] dark:bg-[var(--bg)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--fg)] placeholder:text-[var(--muted)]/50 focus:outline-none focus:ring-4 focus:ring-[var(--color-brand-orange)]/10 focus:border-[var(--color-brand-orange)] transition-all resize-none shadow-sm"
                                 />
                               </div>
 
