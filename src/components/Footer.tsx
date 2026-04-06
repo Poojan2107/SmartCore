@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="max-w-sm">
-              Co-founded by Dhananjay Parmar & Poojan Shrivastav — an Ahmedabad-based engineering company building bespoke, high-performance management systems for coaching institutes.
+              Founded by Dhananjay Parmar. Engineered by Poojan Shrivastav. An Ahmedabad-based company building bespoke, high-performance management systems exclusively for coaching institutes.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>© {new Date().getFullYear()} SmartCore Technologies — Co-founded by Dhananjay Parmar & Poojan Shrivastav.</p>
+          <p>© {new Date().getFullYear()} SmartCore Technologies. Founded by Dhananjay Parmar.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-[var(--color-brand-blue-light)] transition-colors">Terms of Service</a>

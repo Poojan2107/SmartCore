@@ -116,7 +116,7 @@ export default function ContactSection() {
                     <Mail className="w-5 h-5 text-[var(--color-brand-orange)]" />
                   </div>
                   <div>
-                    <strong className="block text-[var(--fg)] font-semibold mb-1">Co-Founders Direct</strong>
+                    <strong className="block text-[var(--fg)] font-semibold mb-1">Get in Touch</strong>
                     <div className="flex flex-col">
                       <a href="mailto:pythond0912@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">pythond0912@gmail.com (Dhananjay)</a>
                       <a href="mailto:poojanshrivastav21@gmail.com" className="text-[var(--muted)] text-sm hover:text-[var(--color-brand-orange)] transition-colors">poojanshrivastav21@gmail.com (Poojan)</a>
@@ -142,7 +142,7 @@ export default function ContactSection() {
             <div className="mt-12 p-6 bg-[var(--color-brand-blue)]/5 rounded-xl border border-[var(--color-brand-blue)]/10">
               <p className="text-sm font-semibold text-[var(--color-brand-blue-light)] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[var(--color-brand-blue-light)] animate-pulse" />
-                Dhananjay & Poojan are currently available
+                Dhananjay (Founder) & Poojan (Engineer) are available
               </p>
             </div>
           </div>
